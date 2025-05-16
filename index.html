@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Super Taco Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#e67e22">
+    <meta name="description" content="Click to make delicious tacos in this addictive clicker game!">
+    
+    <!-- iOS support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Taco Clicker">
+    
+    <!-- iOS icons -->
+    <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/icon-152x152.png">
+    
+    <!-- iOS splash screens -->
+    <link rel="apple-touch-startup-image" href="icons/icon-512x512.png">
+    
+    <!-- Prevent text size adjustment on iOS -->
+    <style>
+        body {
+            -webkit-text-size-adjust: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🌮 Super Taco Clicker 🌮</h1>
+        <div class="stats">
+            <p>Tacos: <span id="counter">0</span></p>
+            <p>Tacos per Click: <span id="clickPower">1</span></p>
+        </div>
+        
+        <button id="clickButton" class="click-button">
+            🌮 Click Me! 🌮
+        </button>
+
+        <div class="upgrades">
+            <h2>Upgrades</h2>
+            <button id="upgradeClick" class="upgrade-button">
+                Upgrade Taco Power (Cost: <span id="upgradeCost">10</span>)
+            </button>
+            <button id="autoClickerButton" class="upgrade-button">
+                Buy Taco Chef (Cost: <span id="autoClickerCost">50</span>)
+            </button>
+        </div>
+
+        <div class="settings">
+            <div class="button-group">
+                <button id="saveButton" class="save-button">
+                    Save Game
+                </button>
+                <button id="resetButton" class="reset-button">
+                    Reset Progress
+                </button>
+            </div>
+            <p class="save-status" id="saveStatus"></p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+    <script src="install.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
