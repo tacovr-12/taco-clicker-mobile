@@ -1,0 +1,1 @@
+{"name":"taco-clicker-mobile","version":"2.1.4","description":"Taco Clicker Game - Mobile Version","author":"tacovr-12","scripts":{"start":"http-server","build":"workbox generateSW workbox-config.js"},"dependencies":{"workbox-cli":"^7.0.0","http-server":"^14.1.1"}}
