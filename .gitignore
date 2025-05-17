@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build and cache
+build/
+dist/
+.cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+config.json
+secrets.json
+
+# Game specific files that shouldn't be public
+game.js
+leaderboard.js
+firebase-config.js
+styles.css
+
+# PWA files that contain game logic
+sw.js
+install.js
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Only include essential files in repository
+# These files will be added during release packaging
+!package.json
+!manifest.json
+!.gitignore
+!README.md
+!icons/ 
